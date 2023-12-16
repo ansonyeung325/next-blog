@@ -1,0 +1,33 @@
+.toggleButton {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: .2rem;
+    border-radius: 2rem;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.ball {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border: 2px solid grey;
+    left: .2rem;
+    border-radius: 50%;
+    background-color: #24272E;
+    transition: left .6s;
+}
+
+.toggledBall {
+    z-index: 1;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border: 2px solid grey;
+    left: calc(20px + 1rem + .2rem);
+    border-radius: 50%;
+    background-color: white;
+    transition: left .6s;
+}
+
