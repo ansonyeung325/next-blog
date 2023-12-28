@@ -18,7 +18,6 @@ export default function Navbar() {
             <div className={styles.links}>
                 <ThemeButton/>
                 <Link className={styles.link} href={'/'}>Home</Link>
-                <Link className={styles.link} href={'/'}>Blog</Link>
                 <Link className={styles.link} href={'/'}>Portfolio</Link>
                 <AuthLink/>
             </div>

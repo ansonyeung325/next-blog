@@ -1,27 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./menu.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Menu() {
+export default async function Menu({ posts }: any) {
   return (
     <div className={styles.container}>
       <h2 className={styles.subtitle}>What's hot</h2>
       <h1 className={styles.title}>Most Popular</h1>
       <div className={styles.itmes}>
-        <Link href="/" className={styles.item}>
-          <div className={styles.imageContainer}>
-            <Image fill src={"/Zentisu.jpg"} alt="" className={styles.image}/>
-          </div>
-          <div className={styles.contentContainer}>
-            <span className={`${styles.category}`}>Travel</span>
-            <h3 className={styles.postTitle}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-            <div className={styles.detail}>
-                <span className={styles.usename}>John</span>
-                <span className={styles.date}> - 10.03.2023</span>
+        {posts?.map((item:any) => 
+          <Link key={item.id} href={`/posts/${item.slug}`} className={styles.item}>
+            <div className={styles.imageContainer}>
+              <Image
+                fill
+                src={item.img? item.img :"/Zentisu.jpg"}
+                alt=""
+                className={styles.image}
+              />
             </div>
-          </div>
-        </Link>
+            <div className={styles.contentContainer}>
+              <span className={`${styles.category}`}>{item.catSlug}</span>
+              <h3 className={styles.postTitle}>
+                {item.title}
+              </h3>
+              <div className={styles.detail}>
+                <span className={styles.usename}>{item.user.name}</span>
+                <span className={styles.date}> - {item.createdAt.slice(0, 10)}</span>
+              </div>
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   );

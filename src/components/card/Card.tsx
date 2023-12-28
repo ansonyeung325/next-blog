@@ -15,7 +15,7 @@ export default function Card({item}:{item:any}) {
             <span className={styles.date}>{dateFormat(item.createdAt)} - </span>
             <span className={styles.category}>{item.catSlug}</span>
         </div>
-        <Link href={"/"}>
+        <Link href={`/posts/${item.slug}`}>
             <h1 className={styles.cardTitle}>{item.title}</h1>
         </Link>    
         <p className={styles.desc}>
@@ -24,7 +24,7 @@ export default function Card({item}:{item:any}) {
             placeat numquam aliquid blanditiis ipsum quo! 
             Ab obcaecati tempore esse deserunt laborum?
         </p>
-        <Link className={styles.link} href="/">Read More</Link>
+        <Link className={styles.link} href={`/posts/${item.slug}`}>Read More</Link>
       </div>
     </div>
   );
